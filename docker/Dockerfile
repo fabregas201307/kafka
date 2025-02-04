@@ -51,6 +51,9 @@ EXPOSE 9092 2181
 COPY --chown=kafka:kafka docker/start-kafka.sh /usr/bin/
 RUN chmod +x /usr/bin/start-kafka.sh
 
+# Copy config files
+COPY config/ ${KAFKA_HOME}/config/
+
 # Switch to kafka user
 USER kafka
 
